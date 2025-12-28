@@ -66,6 +66,53 @@ $ forge script script/DeployVoting.s.sol:DeployVoting --broadcast --private-key 
 # 2) Run verification:
 $ forge verify-contract --chain-id 11155111 <CONTRACT_ADDRESS> src/TechCrushVoteToken.sol:TechCrushVoteToken --etherscan-api-key <ETHERSCAN_KEY>
 $ forge verify-contract --chain-id 11155111 <CONTRACT_ADDRESS> src/TechCrushElection.sol:TechCrushElection --etherscan-api-key <ETHERSCAN_KEY>
+
+# Verification examples for common chains (step-by-step)
+
+## Sepolia (Ethereum testnet)
+# Chain ID: 11155111
+# Steps (after deploy):
+# 1) Get contract addresses from the deploy output or CI artifact `deployed_addresses.env`.
+# 2) Verify the token contract:
+$ forge verify-contract --chain-id 11155111 <TOKEN_ADDRESS> src/TechCrushVoteToken.sol:TechCrushVoteToken --etherscan-api-key <ETHERSCAN_KEY>
+# 3) Verify the election contract:
+$ forge verify-contract --chain-id 11155111 <ELECTION_ADDRESS> src/TechCrushElection.sol:TechCrushElection --etherscan-api-key <ETHERSCAN_KEY>
+
+## Polygon Mumbai (example)
+# Chain ID: 80001
+# Steps (after deploy):
+# 1) Get contract addresses from deploy output.
+# 2) Verify:
+$ forge verify-contract --chain-id 80001 <TOKEN_ADDRESS> src/TechCrushVoteToken.sol:TechCrushVoteToken --etherscan-api-key <POLYGONSCAN_KEY>
+$ forge verify-contract --chain-id 80001 <ELECTION_ADDRESS> src/TechCrushElection.sol:TechCrushElection --etherscan-api-key <POLYGONSCAN_KEY>
+
+## Mainnet (production)
+# Chain ID: 1
+# Steps: same as above but ensure you have mainnet RPC and an Etherscan API key for mainnet verification.
+
+# Using the helper scripts
+
+## Manual verification with `scripts/verify.sh`
+# Usage:
+$ ./scripts/verify.sh <chain-id> <contract-name> <contract-address> <etherscan-key>
+# Example (Sepolia token):
+$ ./scripts/verify.sh 11155111 TechCrushVoteToken 0xYourTokenAddressHere $ETHERSCAN_KEY
+
+## CI helper `scripts/ci_deploy_and_verify.sh`
+# This script expects the following environment variables to be set (CI or local):
+# - RPC_URL (e.g. https://eth-sepolia.g.alchemy.com/v2/<KEY>)
+# - FORGE_PRIVATE_KEY (deployer private key)
+# - CHAIN_ID (numeric)
+# - ETHERSCAN_KEY (optional, for verification)
+# Run locally for a test deployment and verification (example):
+$ export RPC_URL="https://eth-sepolia.g.alchemy.com/v2/<KEY>"
+$ export FORGE_PRIVATE_KEY="<YOUR_PRIVATE_KEY>"
+$ export CHAIN_ID=11155111
+$ export ETHERSCAN_KEY="<ETHERSCAN_KEY>" # optional
+$ ./scripts/ci_deploy_and_verify.sh
+
+# Artifact
+# After a successful run in CI the script will save `deployed_addresses.env` which contains the deployed addresses.
 ```
 
 ### Cast
