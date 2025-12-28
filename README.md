@@ -1,7 +1,7 @@
 # TECHCRUSH-VOTING-SYSTEM-
 
 
-This is my capstone project for TECHCRUSH Smart Contract Development. It includes an ERC-20 token and a voting contract for transparent elections.
+This is our capstone project for TECHCRUSH Smart Contract Development. It includes an ERC-20 token and a voting contract for transparent elections.
 
 ## Deployed Contract Addresses (Anvil)
 - TechCrushVoteToken: 0x5FbDB2315678afecb367f032d93F642f64180aa3 (example; replace with yours)
