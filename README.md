@@ -67,6 +67,9 @@ $ forge script script/DeployVoting.s.sol:DeployVoting --broadcast --private-key 
 $ forge verify-contract --chain-id 11155111 <CONTRACT_ADDRESS> src/TechCrushVoteToken.sol:TechCrushVoteToken --etherscan-api-key <ETHERSCAN_KEY>
 $ forge verify-contract --chain-id 11155111 <CONTRACT_ADDRESS> src/TechCrushElection.sol:TechCrushElection --etherscan-api-key <ETHERSCAN_KEY>
 
+# Example Anvil run
+See `docs/example_anvil_run.md` for a recorded local Anvil scenario (includes transaction hashes, results and winner) that reproduces the requested scenario: "Best Programming Language 2025" with votes from three voters and results [2,1,0], winner "Solidity".
+
 # Verification examples for common chains (step-by-step)
 
 ## Sepolia (Ethereum testnet)
