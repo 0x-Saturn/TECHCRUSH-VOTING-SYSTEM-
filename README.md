@@ -49,10 +49,6 @@ We created an election titled "Best Programming Language 2025" with candidates [
 Results from getResults(): [2, 1, 0]  
 Winner from getWinner(): "Solidity"
 
-Transaction examples:
-- Election creation tx hash: 0x... (from Anvil logs)
-- Vote tx hash: 0x... (from Anvil logs)
-
 All testing checklist items passed:
 - [x] Can create an election
 - [x] Multiple people can vote
