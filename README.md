@@ -33,9 +33,9 @@ A contract for creating elections and voting.
 3. Test: `npx hardhat test`
 4. Deploy: `npx hardhat run scripts/deploy.js`
 
-## Deployed Contract Addresses (Update with actual)
-- TechCrushToken: [Address]
-- Voting: [Address]
+## Deployed Contract Addresses (Local Hardhat Network)
+- TechCrushToken: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+- Voting: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
 
 ## Explanation of Elections and Results
 For demonstration, we created an election "Best Programming Language" with candidates ["Solidity", "Rust", "CSS"].
